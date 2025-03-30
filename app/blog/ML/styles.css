@@ -1,0 +1,50 @@
+/* Add Tailwind Typography plugin styles for blog content */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prose code {
+  @apply bg-gray-800 px-1 py-0.5 rounded text-green-400 text-sm;
+}
+
+.prose pre {
+  @apply bg-gray-900 border border-green-500/30 rounded-lg p-4 my-6 text-green-400 text-sm overflow-x-auto;
+}
+
+.prose img {
+  @apply rounded-lg border border-blue-500/30 shadow-[0_0_15px_rgba(0,128,255,0.15)];
+}
+
+.prose h2 {
+  @apply text-2xl mt-8 mb-4 font-bold;
+}
+
+.prose h3 {
+  @apply text-xl mt-6 mb-3 font-bold;
+}
+
+.prose p {
+  @apply mb-4 text-gray-300 leading-relaxed;
+}
+
+.prose ul,
+.prose ol {
+  @apply my-4 pl-6 text-gray-300;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-green-500 bg-green-500/5 py-2 px-4 my-6 rounded-r-md italic;
+}
+
+.prose a {
+  @apply text-blue-400 hover:text-blue-300 transition-colors no-underline;
+}
+
+.prose strong {
+  @apply text-white font-bold;
+}
+

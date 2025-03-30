@@ -73,9 +73,57 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "65ch",
+            color: "hsl(var(--foreground))",
+            '[class~="lead"]': {
+              color: "hsl(var(--muted-foreground))",
+            },
+            a: {
+              color: "hsl(var(--primary))",
+              textDecoration: "none",
+            },
+            strong: {
+              color: "hsl(var(--foreground))",
+            },
+            h1: {
+              color: "hsl(var(--foreground))",
+            },
+            h2: {
+              color: "hsl(var(--foreground))",
+            },
+            h3: {
+              color: "hsl(var(--foreground))",
+            },
+            h4: {
+              color: "hsl(var(--foreground))",
+            },
+            code: {
+              color: "hsl(var(--primary))",
+              backgroundColor: "hsl(var(--muted))",
+              borderRadius: "0.25rem",
+              paddingLeft: "0.25rem",
+              paddingRight: "0.25rem",
+              paddingTop: "0.125rem",
+              paddingBottom: "0.125rem",
+            },
+            pre: {
+              backgroundColor: "hsl(var(--muted))",
+              borderRadius: "0.5rem",
+              padding: "1rem",
+            },
+            blockquote: {
+              color: "hsl(var(--muted-foreground))",
+              borderLeftColor: "hsl(var(--primary))",
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config
 
 export default config

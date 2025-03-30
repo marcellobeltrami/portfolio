@@ -13,12 +13,11 @@ const blogPosts = [
       "How deep learning is revolutionizing our ability to predict protein structures from amino acid sequences.",
     date: "May 15, 2023",
     category: "Machine Learning",
+    dir_path:"/blog/ML",
     image: "/placeholder.svg?height=400&width=600",
-    link: "/blog/machine-learning-protein-structure",
   },
   
 ]
-
 
 // Static data for projects
 const projects = [
@@ -74,13 +73,17 @@ export default function Home() {
             <Link href="/tutorials" className="text-gray-300 hover:text-green-400 transition-colors">
               Tutorials
             </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-green-400 transition-colors">
-              Contact
-            </Link>
           </nav>
-          <Button variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/10">
-            Connect
-          </Button>
+          
+
+            <Link
+                  href="/contact"
+                >
+                  <Button variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/10">
+                    Connect
+                  </Button>
+                </Link>
+          
         </div>
       </header>
 
@@ -209,16 +212,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Blog Section */}
-      <section id="blog" className="py-20 relative bg-gradient-to-b from-black to-green-950/20">
+         {/* Blog Section */}
+         <section id="blog" className="py-20 relative bg-gradient-to-b from-black to-green-950/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block px-3 py-1 border border-green-500/30 bg-green-500/10 text-green-400 rounded-full text-sm font-mono mb-2">
               Latest Insights
             </div>
             <h2 className="text-3xl md:text-4xl font-bold">
-              My {" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">Articles</span>{" "}
+              The{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">BioCode</span>{" "}
+              Blog
             </h2>
             <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
               Exploring the latest developments in bioinformatics, computational biology, and biotechnology.
@@ -243,17 +247,17 @@ export default function Home() {
                     {post.category}
                   </div>
                 </div>
-                <div className="p-5 space-y-3">
+                <Link href={post.dir_path} className="p-5 space-y-3 block">
                   <h3 className="text-xl font-bold group-hover:text-green-400 transition-colors">{post.title}</h3>
                   <p className="text-gray-400 text-sm line-clamp-2">{post.excerpt}</p>
                   <div className="flex justify-between items-center pt-2">
                     <span className="text-xs text-gray-500">{post.date}</span>
-                    <Link href="#" className="text-green-400 text-sm flex items-center gap-1 group-hover:underline">
+                    <span className="text-green-400 text-sm flex items-center gap-1 group-hover:underline">
                       Read more
                       <ChevronRight className="h-3 w-3" />
-                    </Link>
+                    </span>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -338,8 +342,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 relative bg-gradient-to-b from-black to-blue-950/20">
+    {/* Contact Section */}
+    <section id="contact" className="py-20 relative bg-gradient-to-b from-black to-blue-950/20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -356,89 +360,15 @@ export default function Home() {
                 Interested in collaboration, have questions about my research, or just want to say hello? Feel free to
                 reach out!
               </p>
-            </div>
-
-            <div className="border border-blue-500/30 rounded-lg p-6 bg-black/40 backdrop-blur-sm">
-              {/* Client-side form handling with no server actions */}
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-gray-300">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-3 py-2 bg-black/60 border border-blue-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-gray-300">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-3 py-2 bg-black/60 border border-blue-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium text-gray-300">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    className="w-full px-3 py-2 bg-black/60 border border-blue-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white"
-                    placeholder="What's this about?"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-gray-300">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    className="w-full px-3 py-2 bg-black/60 border border-blue-500/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white"
-                    placeholder="Your message here..."
-                  ></textarea>
-                </div>
-                <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">Send Message</Button>
-              </form>
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <a
-                href="mailto:marcello-blog@gmail.com"
-                className="flex flex-col items-center p-6 border border-blue-500/20 rounded-lg bg-black/30 hover:bg-blue-900/10 hover:border-blue-500/40 transition-all"
-              >
-                <Mail className="h-8 w-8 text-blue-400 mb-3" />
-                <h3 className="font-medium">Email</h3>
-                <p className="text-sm text-gray-400 mt-1">marcello-blog@gmail.com</p>
-              </a>
-              <a
-                href="https://github.com/marcellobeltrami"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center p-6 border border-blue-500/20 rounded-lg bg-black/30 hover:bg-blue-900/10 hover:border-blue-500/40 transition-all"
-              >
-                <Github className="h-8 w-8 text-blue-400 mb-3" />
-                <h3 className="font-medium">GitHub</h3>
-                <p className="text-sm text-gray-400 mt-1">@marcellobeltrami</p>
-              </a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center p-6 border border-blue-500/20 rounded-lg bg-black/30 hover:bg-blue-900/10 hover:border-blue-500/40 transition-all"
-              >
-                <Instagram className="h-8 w-8 text-blue-400 mb-3" />
-                <h3 className="font-medium">Instagram</h3>
-                <p className="text-sm text-gray-400 mt-1">@readysetg00h</p>
-              </a>
+              <div className="mt-6">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-md bg-blue-500 px-8 py-3 text-sm font-medium text-white shadow transition-colors hover:bg-blue-600"
+                >
+                  Go to Contact Page
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
