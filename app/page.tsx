@@ -8,12 +8,11 @@ import { Dna, Microscope, Code, FileText, Mail, Github, Twitter, ExternalLink, C
 // Static data for the blog posts
 const blogPosts = [
   {
-    title: "Machine Learning in Protein Structure Prediction",
-    excerpt:
-      "How deep learning is revolutionizing our ability to predict protein structures from amino acid sequences.",
+    title: "Python for bioinformatics",
+    excerpt: "How python can become a pivotal in your bionformatics toolbox.",
     date: "May 15, 2023",
-    category: "Machine Learning",
-    dir_path:"/blog/ML",
+    category: "Programming and Tech",
+    dir_path:"/blog/python_lang",
     image: "/placeholder.svg?height=400&width=600",
   },
   

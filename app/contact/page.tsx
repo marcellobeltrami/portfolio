@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Mail, Github, Twitter, ArrowLeft } from "lucide-react"
+import { Mail, Github, Twitter, ArrowLeft, Instagram } from "lucide-react"
 import ContactForm from "@/components/contact-form"
 
 export default function ContactPage() {
@@ -39,15 +39,15 @@ export default function ContactPage() {
 
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
               <a
-                href="mailto:contact@example.com"
+                href="mailto:marcello-blog@gmail.com"
                 className="flex flex-col items-center p-6 border border-blue-500/20 rounded-lg bg-black/30 hover:bg-blue-900/10 hover:border-blue-500/40 transition-all"
               >
                 <Mail className="h-8 w-8 text-blue-400 mb-3" />
                 <h3 className="font-medium">Email</h3>
-                <p className="text-sm text-gray-400 mt-1">contact@example.com</p>
+                <p className="text-sm text-gray-400 mt-1">marcello-blog@gmail.com</p>
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/marcellobeltrami"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center p-6 border border-blue-500/20 rounded-lg bg-black/30 hover:bg-blue-900/10 hover:border-blue-500/40 transition-all"
@@ -57,14 +57,13 @@ export default function ContactPage() {
                 <p className="text-sm text-gray-400 mt-1">@biocoder</p>
               </a>
               <a
-                href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center p-6 border border-blue-500/20 rounded-lg bg-black/30 hover:bg-blue-900/10 hover:border-blue-500/40 transition-all"
               >
-                <Twitter className="h-8 w-8 text-blue-400 mb-3" />
-                <h3 className="font-medium">Twitter</h3>
-                <p className="text-sm text-gray-400 mt-1">@bioinfocoder</p>
+                <Instagram className="h-8 w-8 text-blue-400 mb-3" />
+                <h3 className="font-medium">Instagram</h3>
+                <p className="text-sm text-gray-400 mt-1">@readysetg00h</p>
               </a>
             </div>
           </div>

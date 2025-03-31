@@ -2,20 +2,21 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Dna, Calendar, ArrowLeft, Share2, Bookmark, ChevronRight } from "lucide-react"
+import {python_article} from "@/public/articles/text/content"
 
 // This would typically come from a CMS or database
 // For static export, we're using a hardcoded article
 const article = {
-  title: "Machine Learning in Protein Structure Prediction",
-  excerpt: "How deep learning is revolutionizing our ability to predict protein structures from amino acid sequences.",
-  date: "May 15, 2023",
-  author: "Dr. Jane Smith",
-  authorRole: "Computational Biologist",
-  readTime: "8 min read",
-  category: "Machine Learning",
-  tags: ["AlphaFold", "Deep Learning", "Protein Folding", "Bioinformatics"],
-  coverImage: "/placeholder.svg?height=600&width=1200",
-  authorImage: "/placeholder.svg?height=100&width=100",
+  title: "Python for bioinformatics",
+  excerpt: "How Python can be used in bionformatics tool development.",
+  date: "March 31, 2025",
+  author: "Marcello Beltrami",
+  authorRole: "Bioinformatician",
+  readTime: "10 min read",
+  category: "Programming",
+  tags: ["Languages", "Python","Pipelines", "Bioinformatics"],
+  coverImage: "/articles/images/placeholder.svg?height=600&width=1200",
+  authorImage: "/Me.png?height=100&width=100",
 }
 
 // For static export, we need to define the paths that should be generated
@@ -84,13 +85,8 @@ export default function BlogArticle({ params }: { params: { slug: string } }) {
 
             <div className="flex items-center gap-4 mb-8">
               <div className="flex items-center gap-2">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-green-500/30">
-                  <Image
-                    src={article.authorImage || "/placeholder.svg"}
-                    alt={article.author}
-                    fill
-                    className="object-cover"
-                  />
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-green-500/30 bg-black shadow-[0_0_15px_rgba(0,255,128,0.5)]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 animate-pulse"></div>
                 </div>
                 <div>
                   <p className="text-sm font-medium">{article.author}</p>
@@ -133,7 +129,7 @@ export default function BlogArticle({ params }: { params: { slug: string } }) {
 
       {/* Article Content */}
       <section className="py-8 relative">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4"></div>
           <div className="max-w-3xl mx-auto">
             {/* Article sharing sidebar - desktop */}
             <div className="hidden md:flex flex-col fixed left-8 top-1/2 transform -translate-y-1/2 gap-4">
@@ -148,160 +144,52 @@ export default function BlogArticle({ params }: { params: { slug: string } }) {
             {/* Article content */}
             <div className="prose prose-invert max-w-none prose-headings:font-bold prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300 prose-blockquote:border-green-500 prose-blockquote:bg-green-500/5 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:rounded-md">
               <p className="text-xl leading-relaxed">
-                The prediction of protein structures from amino acid sequences has been one of the grand challenges in
-                computational biology for decades. Recent breakthroughs in deep learning approaches have revolutionized
-                this field, enabling unprecedented accuracy in structure prediction.
-              </p>
+                {python_article.b1}
+             </p>
 
-              <h2>The Protein Folding Problem</h2>
-
+              {/* --Python for bioinformatics-- */}
+              <h2>{python_article.a2}</h2>
               <p>
-                Proteins are the workhorses of cells, performing a vast array of functions essential for life. Their
-                function is intimately tied to their three-dimensional structure, which is determined by the sequence of
-                amino acids that make up the protein. The process by which a protein folds into its functional structure
-                is complex and not fully understood, despite decades of research.
+              {python_article.b2}
               </p>
 
-              <div className="relative w-full h-[300px] rounded-lg overflow-hidden border border-blue-500/30 shadow-[0_0_15px_rgba(0,128,255,0.15)] my-8">
+
+              <div className="items-center relative w-fullength h-[350px]">
                 <Image
-                  src="/placeholder.svg?height=600&width=800"
-                  alt="Protein folding illustration"
+                  src="/articles/images/TimeOfExecutions.png?height=1080&width=1920"
+                  alt="Parallelization"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-4 font-mono text-xs text-blue-400 border-t border-blue-500/30 bg-black/50 backdrop-blur-sm">
-                  <div className="flex justify-between">
-                    <span>// FOLDING_PATHWAY.sim</span>
-                    <span className="text-blue-500">VISUALIZATION:ACTIVE</span>
-                  </div>
-                </div>
               </div>
 
-              <p>Traditional methods for protein structure prediction have included:</p>
 
-              <ul>
-                <li>Homology modeling (using known structures of similar proteins)</li>
-                <li>Molecular dynamics simulations</li>
-                <li>Fragment-based assembly</li>
-                <li>Energy minimization approaches</li>
-              </ul>
-
+              {/* --Performance and package management-- */}
+              <h3>{python_article.a2_1}</h3>
               <p>
-                While these methods have been valuable, they often fall short when dealing with proteins that have no
-                close homologs with known structures or when modeling complex folding patterns.
+              {python_article.b2_1}
               </p>
-
-              <h2>The Deep Learning Revolution</h2>
-
-              <p>
-                The application of deep learning to protein structure prediction has transformed the field. In
-                particular, the development of AlphaFold 2 by DeepMind has been hailed as a major scientific
-                breakthrough, achieving accuracy levels previously thought to be years or even decades away.
-              </p>
-
-              <blockquote>
-                "AlphaFold represents a major advance in protein structure prediction, demonstrating that AI can solve
-                fundamental scientific problems." — Dr. John Jumper, DeepMind
-              </blockquote>
-
-              <h3>How Deep Learning Models Work</h3>
-
-              <p>
-                Modern deep learning approaches to protein structure prediction typically involve several key
-                components:
-              </p>
-
-              <div className="bg-gray-900 border border-green-500/30 rounded-lg p-5 my-6 font-mono text-sm overflow-x-auto">
-                <pre className="text-green-400">
-                  {`# Simplified pseudocode for a deep learning protein structure prediction pipeline
-
-def predict_structure(amino_acid_sequence):
-    # 1. Generate multiple sequence alignment (MSA)
-    msa = generate_msa(amino_acid_sequence)
-    
-    # 2. Extract evolutionary information
-    covariance_features = extract_covariance(msa)
-    
-    # 3. Feed into deep neural network
-    initial_structure = deep_neural_network(amino_acid_sequence, covariance_features)
-    
-    # 4. Refine structure iteratively
-    final_structure = refine_structure(initial_structure)
-    
-    return final_structure`}
-                </pre>
+              <div className="flex items-center relative w-fullength h-[350px]">
+                <Image
+                  src="/articles/images/Rust_vs_python.svg?height=1080&width=1920"
+                  alt="Rust ferris VS Python"
+                  fill
+                  className="object-contain"
+                />
               </div>
 
+              {/* --Why some software developers dislike python-- */}
+              <h2>{python_article.a3}</h2>
               <p>
-                The key innovation in recent models is their ability to leverage evolutionary information through
-                multiple sequence alignments (MSAs) and to incorporate physical constraints into the prediction process.
+              {python_article.b3}
               </p>
 
-              <h2>Impact on Biological Research</h2>
-
+              {/* --Pipeline development using python in bioinformatics.-- */}
+              <h2> {python_article.a4}</h2>
               <p>
-                The ability to accurately predict protein structures has profound implications for various areas of
-                biological research:
+              {python_article.b4}
               </p>
 
-              <ul>
-                <li>
-                  <strong>Drug Discovery:</strong> Enabling structure-based drug design for previously inaccessible
-                  targets
-                </li>
-                <li>
-                  <strong>Understanding Disease:</strong> Providing insights into how mutations affect protein structure
-                  and function
-                </li>
-                <li>
-                  <strong>Synthetic Biology:</strong> Facilitating the design of novel proteins with desired functions
-                </li>
-                <li>
-                  <strong>Evolutionary Biology:</strong> Offering new perspectives on protein evolution and adaptation
-                </li>
-              </ul>
-
-              <h2>Future Directions</h2>
-
-              <p>
-                Despite the remarkable progress, several challenges and opportunities remain in the field of protein
-                structure prediction:
-              </p>
-
-              <ol>
-                <li>Predicting protein dynamics and conformational changes</li>
-                <li>Modeling protein-protein and protein-ligand interactions</li>
-                <li>Predicting the effects of post-translational modifications</li>
-                <li>Developing more computationally efficient models for real-time prediction</li>
-              </ol>
-
-              <p>
-                As deep learning techniques continue to evolve and as more experimental data becomes available, we can
-                expect further advances in our ability to predict and understand protein structures, bringing us closer
-                to a comprehensive understanding of the molecular machinery of life.
-              </p>
-
-              <h2>References</h2>
-
-              <ol className="list-decimal pl-5 space-y-2">
-                <li>
-                  Jumper, J., Evans, R., Pritzel, A. et al. (2021). Highly accurate protein structure prediction with
-                  AlphaFold. Nature, 596, 583–589.
-                </li>
-                <li>
-                  Baek, M., DiMaio, F., Anishchenko, I. et al. (2021). Accurate prediction of protein structures and
-                  interactions using a three-track neural network. Science, 373, 871–876.
-                </li>
-                <li>
-                  Senior, A.W., Evans, R., Jumper, J. et al. (2020). Improved protein structure prediction using
-                  potentials from deep learning. Nature, 577, 706–710.
-                </li>
-                <li>
-                  Yang, J., Anishchenko, I., Park, H. et al. (2020). Improved protein structure prediction using
-                  predicted interresidue orientations. PNAS, 117, 1496–1503.
-                </li>
-              </ol>
-            </div>
 
             {/* Article sharing - mobile */}
             <div className="flex md:hidden justify-center gap-4 mt-8 border-t border-gray-800 pt-8">
@@ -316,22 +204,12 @@ def predict_structure(amino_acid_sequence):
             {/* Author bio */}
             <div className="mt-12 border-t border-gray-800 pt-8">
               <div className="flex items-start gap-4">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden border border-green-500/30">
-                  <Image
-                    src={article.authorImage || "/placeholder.svg"}
-                    alt={article.author}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="relative w-16 h-16 rounded-full overflow-hidden border border-green-500/30 bg-black shadow-[0_0_15px_rgba(0,255,128,0.5)]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 animate-pulse"></div>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold">{article.author}</h3>
                   <p className="text-gray-400 text-sm mb-2">{article.authorRole}</p>
-                  <p className="text-gray-300">
-                    Dr. Smith specializes in computational biology with a focus on machine learning applications in
-                    protein structure prediction. She has published over 30 papers in leading journals and is a
-                    principal investigator at the Institute for Computational Biomedicine.
-                  </p>
                 </div>
               </div>
             </div>
