@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: "BioNexus - Bioinformatics Portfolio & Blog",
   description:
     "Personal portfolio and blog focused on bioinformatics, computational biology, and biotechnology research.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
